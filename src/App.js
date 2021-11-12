@@ -35,6 +35,24 @@ const App = () => {
   //LOGIC SECTIONR
   //needful: a doChange and a doSubmit func
 
+  const doSubmit = () => {
+      //AXIOS! (Sounds like a dang harry potter spell lol)
+    axios.post('https://reqres.in/api/orders',orderData)
+      .then(res=>{
+       setOrders([res.data, ...orders])
+      }).catch(err=>{
+        console.error(err);
+      })
+      .finally(()=>{setOrderData(initOrderData)})
+  }
+
+  //needful: validate function !
+
+  const doChange = (name,value) => {
+    //add 'validate' callback here
+    setOrderData({...orderData,[name]:value})
+
+  }
 
   return (
     <>
@@ -49,7 +67,12 @@ const App = () => {
       {/*ROUTE STUFF HERE*/}
       <Route exact path='/' component={Home}/>
       <Route path='/pizza'>
-        <Order />
+        <Order 
+        values={orderData}
+        change={doChange}
+        submit={doSubmit}
+        errors={formErrors}
+        />
       </Route>
 
       </Router>
