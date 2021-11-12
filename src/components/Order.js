@@ -25,7 +25,7 @@ const Order = (props) => {
     return (
         <div>
             <h2>ORDER your PIE.</h2>
-            {/* <p>{errors.name}</p>  */}
+            <p>{errors.name}</p> 
 
             <form  id='pizza-form' onSubmit={handleSubmit}>
                 <lable>Name:
@@ -34,11 +34,12 @@ const Order = (props) => {
                     name='name'
                     value={name}
                     onChange={handleChange}
+                    id='name-input'
                     />
                 </lable>
 
                 <lable>Size:
-                    <select>
+                    <select id='size-dropdown'>
                   
                     value={size}
                     onChange={handleChange}
@@ -92,6 +93,7 @@ const Order = (props) => {
                     name='special'
                     value={special}
                     onChange={handleChange}
+                    id='special-text'
                     />
                 </lable>
                 <input type='submit' id='order-button' value='ORDER your PIE.' />

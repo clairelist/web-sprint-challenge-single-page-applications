@@ -33,7 +33,6 @@ const App = () => {
   const [orders,setOrders] = useState([]); 
 
   //LOGIC SECTIONR
-  //needful: a doChange and a doSubmit func
 
   const doSubmit = () => {
       //AXIOS! (Sounds like a dang harry potter spell lol)
@@ -47,9 +46,14 @@ const App = () => {
   }
 
   //needful: validate function !
+  const validate = (name,value) => {
+    yup.reach(schema,name).validate(value)
+      .then(()=> setFormErrors({...formErrors,[name]:''}))
+      .catch(err => setFormErrors({...formErrors,[name]: err.errors[0] }))
+  }
 
   const doChange = (name,value) => {
-    //add 'validate' callback here
+    validate(name,value);
     setOrderData({...orderData,[name]:value})
 
   }
