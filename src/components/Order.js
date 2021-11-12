@@ -39,7 +39,7 @@ const Order = (props) => {
 
                 <lable>Size:
                     <select>
-                    name='name'
+                  
                     value={size}
                     onChange={handleChange}
                        
@@ -89,6 +89,7 @@ const Order = (props) => {
                 <lable>SPECIAL instructions::
                     <input 
                     type='text'
+                    name='special'
                     value={special}
                     onChange={handleChange}
                     />

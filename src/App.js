@@ -55,7 +55,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='App'>
       <h1>Lambda Eats</h1>
       
 
@@ -73,10 +73,22 @@ const App = () => {
         submit={doSubmit}
         errors={formErrors}
         />
+        {orders.map(order=>{
+          <div key={order.id}>
+            <p>{order.name}, thank you for ordering!</p>
+            <h4>Your order::</h4>
+            <p>{order.size} with {(order.pepperoni ? 'pepperoni' : '')}</p>
+            <p>{order.olives ? 'olives' : ''}</p>
+            <p>{order.mushrooms ? 'mushrooms' : ''}</p>
+            <p>{order.pineapple ? 'pineapple' : 'no toppings'}</p>
+
+            <p>{order.special ? `${order.special}` : ''}</p>
+          </div>
+        })}
       </Route>
 
       </Router>
-    </>
+    </div>
   );
 };
 export default App;
