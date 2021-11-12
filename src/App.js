@@ -3,9 +3,9 @@ import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 
 import Order from './components/Order';
 import Home from './components/Home';
+import * as yup from 'yup';
+import schema from './validation/formSchema'; //
 
-// import * as yup from 'yup';
-// import schema from './formSchema'; //--to build out!
 import axios from 'axios';
 
 const initOrderData= {
